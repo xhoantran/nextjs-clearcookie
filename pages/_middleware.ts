@@ -11,7 +11,9 @@ export function middleware(req: NextRequest) {
 
     if(!access_token) {
       res.clearCookie('access_token')
+      console.log(res)
       res.clearCookie('refresh_token');
+      console.log(res)
       return res
     }
 
