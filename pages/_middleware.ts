@@ -10,10 +10,13 @@ export function middleware(req: NextRequest) {
     const res = NextResponse.rewrite(`/${isInBeta ? 'beta' : 'non-beta'}`)
 
     if(!access_token) {
+      console.log("Clearing access_token")
+      console.log(res.headers)
       res.clearCookie('access_token')
-      console.log(res)
+      console.log("Clearing refresh_token")
+      console.log(res.headers)
       res.clearCookie('refresh_token');
-      console.log(res)
+      console.log(res.headers)
       return res
     }
 
