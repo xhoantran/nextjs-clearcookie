@@ -13,13 +13,13 @@ export function middleware(req: NextRequest) {
 
       console.log("Clearing access_token")
       res.cookie('access_token', '', {
-        expires: new Date(), // Same above
+        expires: new Date(0), // Same above
       });
       console.log(res.headers.get('Set-Cookie'))
 
       console.log("Clearing refresh_token")
       res.cookie('refresh_token', '', {
-        expires: new Date(), // Same above
+        expires: new Date(0), // Same above
       });
       console.log(res.headers.get('Set-Cookie'))
 
