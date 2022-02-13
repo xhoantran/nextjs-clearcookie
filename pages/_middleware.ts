@@ -16,7 +16,9 @@ export function middleware(req: NextRequest) {
       console.log(res.headers.get('Set-Cookie'))
 
       console.log("Clearing refresh_token")
-      res.clearCookie('refresh_token');
+      res.cookie('refresh_token', '', {
+        expires: new Date(), // Same above
+      });
       console.log(res.headers.get('Set-Cookie'))
 
       return res
@@ -26,3 +28,5 @@ export function middleware(req: NextRequest) {
     return res
   }
 }
+
+// access_token=true; Path=/; Expires=Wed Dec 31 1969 19:00:00 GMT-0500 (Eastern Standard Time), refresh_token=true; Path=/; Expires=Wed Dec 31 1969 19:00:00 GMT-0500 (Eastern Standard Time)
