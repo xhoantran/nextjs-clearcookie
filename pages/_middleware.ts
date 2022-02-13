@@ -12,7 +12,9 @@ export function middleware(req: NextRequest) {
     if(!access_token) {
 
       console.log("Clearing access_token")
-      res.clearCookie('access_token')
+      res.cookie('access_token', '', {
+        expires: new Date(), // Same above
+      });
       console.log(res.headers.get('Set-Cookie'))
 
       console.log("Clearing refresh_token")
